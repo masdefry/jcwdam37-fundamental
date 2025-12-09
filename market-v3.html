@@ -1,0 +1,24 @@
+<script>
+  const productName = prompt('Type new product name:');
+  const productPrice = prompt('Type new product price:');
+  const productStocks = prompt('Type new product stocks:');
+  const productUnit = prompt(
+    'Select new product unit \n 1. DUS \n 2. PCS \n 3. KG:'
+  );
+  Main();
+  async function Main() {
+    await fetch(
+      'https://crudcrud.com/api/122799334181482a844babfdc99814d4/products',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          productName,
+          productPrice,
+          productStocks,
+          productUnit: 'DUS',
+        }),
+      }
+    );
+  }
+</script>
